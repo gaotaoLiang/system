@@ -1,0 +1,23 @@
+#spring配置
+spring:
+  profiles:
+    active: test
+  jackson:
+    date-format: MM/dd/YYYY HH:mm:ss
+    time-zone: GMT+8
+
+#文件上传大小限制
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB   #单个文件的最大上限
+      max-request-size: 50MB  #单个请求的文件总大小上限
+
+  #mvc配置
+  mvc:
+    view:
+      suffix: .html
+    static-path-pattern: /**
+    resources:
+      static-locations: classpath:/static/
+

@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource   # 使用druid数据源
+    druid:
+      url: jdbc:mysql://47.100.44.172:3306/labsystem?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: wyulab
+
+  #redis 配置
+  redis:
+    database: 0
+    host: 127.0.0.1    # Redis服务器地址
+    lettuce:
+      pool:
+        max-active: 8   #最大连接数据库连接数,设 0 为没有限制
+        max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+        max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+      shutdown-timeout: 100ms
+    password: 123456
+    port: 6379
+
+#设置开发环境的端口号
+server:
+  port: 8089
+
+#mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mybatis/mapper/*Mapper.xml
+  typeAliasesPackage: com.wyulab.reservation.entity
+  global-config:
+    db-config:
+      #主键类型  0:"数据库ID自增",1:"该类型为未设置主键类型", 2:"用户输入ID",3:"全局唯一ID (数字类型唯一ID)", 4:"全局唯一ID UUID",5:"字符串全局唯一ID (idWorker 的字符串表示)";
+      id-type: uuid
+      # 默认数据库表下划线命名
+      table-underline: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    jdbc-type-for-null: 'null'
+
+#设置sql语句打印级别
+logging:
+  level:
+    com:
+      example:
+        shiro:
+          mapper: debug
