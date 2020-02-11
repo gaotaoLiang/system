@@ -67,7 +67,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      * @return
      * @throws Exception
      */
-    @Override
+   /* @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
@@ -80,5 +80,5 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             return false;
         }
         return super.preHandle(request, response);
-    }
+    }*/
 }
