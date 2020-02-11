@@ -11,6 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>system</name>
     <description>Demo project for Spring Boot</description>
 
@@ -113,8 +114,15 @@
     </dependencies>
 
     <build>
+        <finalName>yxjy1.0</finalName>
         <plugins>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <!-- 这个插件，将应用打包成一个可运行的jar包 -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
