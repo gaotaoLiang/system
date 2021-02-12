@@ -24,6 +24,7 @@ public class ShiroConfig {
     /**
      * ShiroFilterFactoryBean 为Shiro过滤器工厂类
      * 配置一些过滤路径
+     *
      * @return
      */
     @Bean("shiroFilter")
@@ -40,6 +41,13 @@ public class ShiroConfig {
         //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了，登出后跳转配置的loginUrl
         //filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/", "anon");
+        //swagger放行
+        filterChainDefinitionMap.put("/swagger-ui.html", "anon");
+        filterChainDefinitionMap.put("/swagger/**", "anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/v2/**", "anon");
+        filterChainDefinitionMap.put("/webjars/**", "anon");
+        filterChainDefinitionMap.put("/configuration/**", "anon");
 
 
         // 添加自己的过滤器并且取名为jwt
@@ -101,8 +109,10 @@ public class ShiroConfig {
     }*/
 
     //加入注解的使用，不加入这个注解不生效
+
     /**
      * 下面的代码是添加注解支持
+     *
      * @return
      */
     @Bean

@@ -1,7 +1,8 @@
 package com.example.system.service;
 
-import com.example.system.entity.SysUser;
-import com.example.system.util.Result;
+import com.example.system.model.po.SysUserPo;
+import com.example.system.model.suo.SysUserSuo;
+import com.example.system.util.ResponseResult;
 
 import java.util.Set;
 
@@ -9,10 +10,11 @@ public interface SysUserService {
 
     Set<String> getUserRolesSet(String username);
 
-    SysUser selectUserByUsername(String username);
+    SysUserPo selectUserByUsername(String username);
 
-    SysUser selectUserByPhone(String phone);
+    SysUserPo selectUserByPhone(String phone);
 
-    Result<?> checkUserIsEffective(SysUser sysUser);
+    SysUserPo selectUserByEmail(String email);
 
+    ResponseResult register(SysUserSuo sysUserSuo);
 }

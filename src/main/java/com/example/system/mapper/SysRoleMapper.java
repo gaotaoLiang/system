@@ -1,19 +1,25 @@
 package com.example.system.mapper;
 
-import com.example.system.entity.SysRole;
-import org.springframework.stereotype.Component;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.system.model.po.SysRolePo;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
-@Component("sysRoleMapper")
-public interface SysRoleMapper {
-    int deleteByPrimaryKey(Integer id);
+import java.util.List;
 
-    int insert(SysRole record);
+@Mapper
+public interface SysRoleMapper extends BaseMapper<SysRolePo> {
+    int deleteByPrimaryKey(Integer rId);
 
-    int insertSelective(SysRole record);
+    int insert(SysRolePo record);
 
-    SysRole selectByPrimaryKey(Integer id);
+    int insertSelective(SysRolePo record);
 
-    int updateByPrimaryKeySelective(SysRole record);
+    SysRolePo selectByPrimaryKey(Integer rId);
 
-    int updateByPrimaryKey(SysRole record);
+    int updateByPrimaryKeySelective(SysRolePo record);
+
+    int updateByPrimaryKey(SysRolePo record);
+
+    List<SysRolePo> selectRoleByUserName(@Param("username") String username);
 }

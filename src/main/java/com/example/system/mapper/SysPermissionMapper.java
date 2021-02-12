@@ -1,6 +1,6 @@
 package com.example.system.mapper;
 
-import com.example.system.entity.SysPermission;
+import com.example.system.model.SysPermission;
 
 public interface SysPermissionMapper {
     int deleteByPrimaryKey(Integer id);

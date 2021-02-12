@@ -32,7 +32,6 @@ public class RandomUtil {
        String number = randomNumber(4);
        System.out.println(number);
 
-
    }
 
 }

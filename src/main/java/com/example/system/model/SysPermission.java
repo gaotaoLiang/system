@@ -1,4 +1,4 @@
-package com.example.system.entity;
+package com.example.system.model;
 
 public class SysPermission {
     private Integer id;

@@ -1,12 +1,11 @@
 package com.example.system.modules.shiro;
 
 
-import com.example.system.entity.LoginUser;
-import com.example.system.entity.SysUser;
+import com.example.system.model.LoginUser;
+import com.example.system.model.SysUser;
 import com.example.system.modules.jwt.JwtToken;
 import com.example.system.modules.jwt.JwtUtil;
 import com.example.system.modules.redis.RedisUtil;
-import com.example.system.service.SysUserService;
 import com.example.system.util.CommonConstant;
 import com.example.system.util.OConvertUtils;
 import org.apache.shiro.authc.*;

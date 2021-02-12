@@ -1,8 +1,7 @@
 package com.example.system.controller;
 
-import com.example.system.entity.SysUser;
+import com.example.system.model.SysUser;
 import com.example.system.modules.redis.RedisUtil;
-import com.example.system.util.ResponseResult;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
