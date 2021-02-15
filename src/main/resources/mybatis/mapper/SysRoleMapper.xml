@@ -1,58 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.system.mapper.SysRoleMapper">
-  <resultMap id="BaseResultMap" type="com.example.system.model.SysRole">
-    <id column="id" jdbcType="INTEGER" property="id" />
+<mapper namespace="com.siec.system.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.siec.system.model.po.SysRolePo">
+    <id column="r_id" jdbcType="INTEGER" property="rId" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, role_name
+    r_id, role_name
   </sql>
+
+  <!--自定义sql-->
+  <select id="selectRoleByUserName" resultMap="BaseResultMap">
+    select r.* from sys_user u, sys_role r where u.username = #{username} and u.r_id = r.r_id
+  </select>
+
+  <!-- -->
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_role
-    where id = #{id,jdbcType=INTEGER}
+    where r_id = #{rId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sys_role
-    where id = #{id,jdbcType=INTEGER}
+    where r_id = #{rId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.example.system.model.SysRole">
-    insert into sys_role (id, role_name)
-    values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.siec.system.model.po.SysRolePo">
+    insert into sys_role (r_id, role_name)
+    values (#{rId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.system.model.SysRole">
+  <insert id="insertSelective" parameterType="com.siec.system.model.po.SysRolePo">
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
+      <if test="rId != null">
+        r_id,
       </if>
       <if test="roleName != null">
         role_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
+      <if test="rId != null">
+        #{rId,jdbcType=INTEGER},
       </if>
       <if test="roleName != null">
         #{roleName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.system.model.SysRole">
+  <update id="updateByPrimaryKeySelective" parameterType="com.siec.system.model.po.SysRolePo">
     update sys_role
     <set>
       <if test="roleName != null">
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where r_id = #{rId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.system.model.SysRole">
+  <update id="updateByPrimaryKey" parameterType="com.siec.system.model.po.SysRolePo">
     update sys_role
     set role_name = #{roleName,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where r_id = #{rId,jdbcType=INTEGER}
   </update>
 </mapper>

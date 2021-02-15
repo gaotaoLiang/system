@@ -42,11 +42,11 @@ mybatis-plus:
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   #mybatis-plus配置
     mapper-locations: classpath:/mybatis/mapper/*Mapper.xml
-    typeAliasesPackage: com.example.system.entity
+    typeAliasesPackage: com.siec.system.model.po
     global-config:
       db-config:
         #主键类型  0:"数据库ID自增",1:"该类型为未设置主键类型", 2:"用户输入ID",3:"全局唯一ID (数字类型唯一ID)", 4:"全局唯一ID UUID",5:"字符串全局唯一ID (idWorker 的字符串表示)";
-        id-type: UUID
+        id-type:
         # 默认数据库表下划线命名
         table-underline: true
     configuration:

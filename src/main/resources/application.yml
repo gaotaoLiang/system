@@ -1,7 +1,7 @@
 #spring配置
 spring:
   profiles:
-    active: test
+    active: dev
   jackson:
     date-format: MM/dd/YYYY HH:mm:ss
     time-zone: GMT+8
@@ -12,6 +12,7 @@ spring:
       enabled: true
       max-file-size: 50MB   #单个文件的最大上限
       max-request-size: 50MB  #单个请求的文件总大小上限
+    context-path: /siec
 
   #mvc配置
   mvc:
@@ -20,4 +21,17 @@ spring:
     static-path-pattern: /**
     resources:
       static-locations: classpath:/static/
+
+  #邮箱设置
+  mail:
+    host: smtp.163.com
+    username: 15119689283@163.com
+    password: FQZUPBAZWBILNRXI    #邮箱授权码
+    default-encoding: utf-8
+    protocol: smtps
+    properties.mail.smtp.port: 465 #端口号465或587
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+
 
