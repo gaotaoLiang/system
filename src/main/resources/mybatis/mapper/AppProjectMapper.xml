@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.siec.system.mapper.AppProjectMapper">
-  <resultMap id="BaseResultMap" type="com.siec.system.model.po.AppProjectPo">
+<mapper namespace="com.demo.system.mapper.AppProjectMapper">
+  <resultMap id="BaseResultMap" type="com.demo.system.model.po.AppProjectPo">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="title" jdbcType="VARCHAR" property="title" />
@@ -27,7 +27,7 @@
     delete from app_project
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.siec.system.model.po.AppProjectPo">
+  <insert id="insert" parameterType="com.demo.system.model.po.AppProjectPo">
     insert into app_project (id, username, title, 
       amount, summary, personal_info_id, 
       plan_path, approval_status, create_time, 
@@ -37,7 +37,7 @@
       #{planPath,jdbcType=VARCHAR}, #{approvalStatus,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.siec.system.model.po.AppProjectPo">
+  <insert id="insertSelective" parameterType="com.demo.system.model.po.AppProjectPo">
     insert into app_project
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.siec.system.model.po.AppProjectPo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.system.model.po.AppProjectPo">
     update app_project
     <set>
       <if test="username != null">
@@ -137,7 +137,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.siec.system.model.po.AppProjectPo">
+  <update id="updateByPrimaryKey" parameterType="com.demo.system.model.po.AppProjectPo">
     update app_project
     set username = #{username,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
